@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Квест-валентинка</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<!-- Фон -->
+<div class="bg" id="bg"></div>
+<div class="bgOverlay"></div>
+
+<main class="app" id="app">
+  <header class="topbar">
+    <div class="topLeft">
+      <div class="badge" id="progressText">Шаг 0 из 6</div>
+      <div class="small" id="progressBarText">Готово: 0%</div>
+    </div>
+
+    <div class="topRight">
+      <button class="iconBtn" id="soundBtn" type="button" aria-pressed="true" title="Звук">
+        <span class="icon" aria-hidden="true">🔊</span>
+        <span class="label">Звук</span>
+      </button>
+      <button class="iconBtn" id="restartBtn" type="button" title="Начать заново">
+        <span class="icon" aria-hidden="true">↻</span>
+        <span class="label">Сначала</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ВАЖНО: fullscreen слой ДОЛЖЕН БЫТЬ ВНЕ card -->
+  <section class="screen" id="screen" aria-live="polite"></section>
+
+  <section class="card" id="card" aria-live="polite">
+    <div class="cardInner">
+      <div class="step" id="stepTitle">Старт</div>
+      <h1 class="title" id="title">Загрузка…</h1>
+      <p class="subtitle" id="subtitle"></p>
+
+      <div class="task" id="task"></div>
+
+      <div class="inputRow" id="inputRow">
+        <input class="input" id="answerInput" type="text" placeholder="Введи ответ…" autocomplete="off" />
+        <button class="btn primary" id="checkBtn" type="button">Проверить</button>
+      </div>
+
+      <div class="actionsRow">
+        <button class="btn ghost" id="hintBtn" type="button">Подсказка</button>
+        <div class="msg" id="msg"></div>
+      </div>
+      <div class="gallery" id="gallery"></div>
+
+      <div class="nextRow" id="nextRow">
+        <button class="btn secondary" id="nextBtn" type="button">Далее</button>
+      </div>
+
+      <div class="progressWrap" aria-hidden="true">
+        <div class="progress">
+          <div class="fill" id="progressFill"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="fullGallery" id="fullGallery"></div>
+
+  <canvas id="fx" class="fx" aria-hidden="true"></canvas>
+</main>
+
+<audio id="bgm" preload="auto" loop></audio>
+<audio id="special" preload="auto"></audio>
+
+<script src="app.js"></script>
+</body>
+</html>
